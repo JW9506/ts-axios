@@ -5,7 +5,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}/examples/greeter.ts",
+      "program": "${workspaceFolder}/examples/section1/index.ts",
       "console": "integratedTerminal",
       "preLaunchTask": "tsc: build - tsconfig.json",
       "outFiles": [
