@@ -12,4 +12,21 @@ var list = [1, 2, 3];
 console.log(list);
 var list2 = [1, 2, 3];
 console.log(list2);
+console.log();
+console.log();
+var x;
+x = ["Hello", 15];
+console.log(x[0].slice(null, 2));
+console.log(x[1].toPrecision(5));
+var Color;
+(function (Color) {
+    Color[Color["Red"] = 0] = "Red";
+    Color[Color["Green"] = 1] = "Green";
+    Color[Color["Blue"] = 2] = "Blue";
+})(Color || (Color = {}));
+var c = Color.Blue;
+console.log(c);
+console.log();
+var colorName = Color[Color.Blue];
+console.log(colorName);
 //# sourceMappingURL=index.js.map

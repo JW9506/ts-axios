@@ -15,3 +15,23 @@ let list: number[] = [1, 2, 3];
 console.log(list);
 let list2: Array<number> = [1, 2, 3];
 console.log(list2);
+
+console.log();
+console.log();
+
+let x: [string, number];
+x = ["Hello", 15];
+console.log(x[0].slice(null, 2));
+console.log(x[1].toPrecision(5));
+
+enum Color {
+  Red,
+  Green,
+  Blue
+}
+
+let c: Color = Color.Blue;
+console.log(c);
+console.log();
+let colorName: string = Color[Color.Blue];
+console.log(colorName);
