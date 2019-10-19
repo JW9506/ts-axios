@@ -143,3 +143,69 @@ digital.tick();
 
 const Analog = createClock(AnalogClock, 6, 30);
 Analog.tick();
+
+interface Shape {
+  color: string;
+}
+
+interface PenStroke {
+  penWidth: number;
+}
+
+interface Oval extends Shape, PenStroke {
+  radius: number;
+}
+
+let o1: Oval = {
+  color: "red",
+  radius: 33,
+  penWidth: 11
+};
+
+let o2 = {} as Oval;
+o2.color = "blue";
+o2.radius = 30;
+o2.penWidth = 11;
+
+// Mixed types
+interface Counter {
+  (start: number): string;
+  interval: number;
+  reset(): void;
+}
+
+function getCounter(): Counter {
+  const counter = (function(start) {
+    return `${start} aaa`;
+  }) as Counter;
+  counter.interval = 15;
+  counter.reset = () => {
+    counter.interval = 0;
+  };
+  return counter;
+}
+
+const c = getCounter();
+console.log(c(5));
+console.log(c.interval);
+c.reset(); console.log(c.interval);
+
+class Control {
+  private state: any;
+}
+
+interface SelectableControl extends Control {
+  select(): void;
+}
+
+class Button extends Control implements SelectableControl { 
+  select() {}
+}
+
+class TextBox extends Control {
+  select() {}
+}
+
+class ImageC extends Control implements SelectableControl { 
+  select() {}
+}
