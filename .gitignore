@@ -27,3 +27,4 @@ yarn-error.log*
 # Learning
 answer.sh
 practice.sh
+/examples
