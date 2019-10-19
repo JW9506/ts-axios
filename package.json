@@ -4,11 +4,13 @@
   "description": "",
   "main": "dist/axios-ts.umd.js",
   "module": "dist/axios-ts.es5.js",
+  "types": "dist/axios-ts.d.ts",
   "scripts": {
     "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.ts'",
-    "start": "rollup -c rollup.config.ts -w",
+    "start:watch": "rollup -c rollup.config.ts -w", 
     "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src"
   },
+  "files": ["dist"],
   "keywords": [],
   "author": "",
   "license": "ISC",
