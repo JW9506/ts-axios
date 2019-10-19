@@ -4,7 +4,7 @@ import sourceMaps from "rollup-plugin-sourcemaps";
 import typescript from "rollup-plugin-typescript2";
 
 const pkg = require("./package.json");
-const libraryName = "axios-ts";
+const libraryName = "ts-axios";
 
 export default {
   input: `src/${libraryName}.ts`,
