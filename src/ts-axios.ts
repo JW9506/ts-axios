@@ -8,6 +8,6 @@ function test(p: Person): void {
 }
 
 test({
-  firstName: "Jayden",
-  lastName: "Wong"
+  firstName: "test",
+  lastName: "test1"
 });
