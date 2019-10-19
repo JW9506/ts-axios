@@ -1,19 +1,23 @@
 {
-  "name": "TS-Reconstruct-Axios",
+  "name": "ts-axios",
   "version": "1.0.0",
-  "description": "",
+  "description": "add typings to axios",
   "main": "dist/ts-axios.umd.js",
   "module": "dist/ts-axios.es5.js",
   "types": "dist/ts-axios.d.ts",
   "scripts": {
     "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
-    "test": "jest --coverage",
+    "test": "jest --coverage --passWithNoTests",
     "start:watch": "rollup -c rollup.config.ts -w", 
     "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src"
   },
   "files": ["dist"],
   "keywords": [],
-  "author": "",
+  "author": "JW9506",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/lodash": "^4.14.144",
