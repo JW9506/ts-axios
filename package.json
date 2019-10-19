@@ -6,12 +6,15 @@
   "module": "dist/ts-axios.es5.js",
   "types": "dist/ts-axios.d.ts",
   "scripts": {
+    "dev": "node examples/server.js",
     "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "test": "jest --coverage --passWithNoTests",
-    "start:watch": "rollup -c rollup.config.ts -w", 
+    "start:watch": "rollup -c rollup.config.ts -w",
     "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "keywords": [],
   "author": "JW9506",
   "repository": {
@@ -30,7 +33,14 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-config-standard": "^8.0.1",
     "typedoc": "^0.15.0",
-    "typescript": "^3.6.4"
+    "typescript": "^3.6.4",
+    "ts-loader": "^6.2.0",
+    "tslint-loader": "^3.5.4",
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0",
+    "webpack": "^4.41.2",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-hot-middleware": "^2.25.0"
   },
   "dependencies": {
     "lodash": "^4.17.15"

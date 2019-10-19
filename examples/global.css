@@ -1,0 +1,26 @@
+body {
+  background-color: gray;
+  color: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper { }
+
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+a {
+  color: #73e2a0; 
+  text-decoration: none;
+}
+
+a:hover {
+  color: #4fc08d;
+}
