@@ -1,4 +1,4 @@
-import axios from '../../src/ts-axios';
+import axios from "../../src/ts-axios";
 
 axios({
   method: "get",
