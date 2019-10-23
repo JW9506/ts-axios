@@ -6,7 +6,7 @@
   "module": "dist/ts-axios.es5.js",
   "types": "dist/ts-axios.d.ts",
   "scripts": {
-    "dev": "node examples/server.js",
+    "dev": "node examples/server",
     "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "test": "jest --coverage --passWithNoTests",
     "start:watch": "rollup -c rollup.config.ts -w",

@@ -8,6 +8,8 @@ const webpackConfig = require("./webpack.config");
 const app = express();
 const compiler = webpack(webpackConfig);
 
+const { extend, error, base, simple } = require("./routers");
+
 app.use(
   webpackDevMiddleware(compiler, {
     publicPath: "/__build__/",
@@ -23,43 +25,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const router = express.Router();
-router.get("/simple/get", function(req, res) {
-  res.json(req.query);
-});
-router.get("/base/get", function(req, res) {
-  res.json(req.query);
-});
-router.post("/base/post", function(req, res) {
-  res.json(req.body);
-});
-router.post("/base/buffer", function(req, res) {
-  let msg = [];
-  req.on("data", (chunk) => {
-    if (chunk) {
-      msg.push(chunk);
-    }
-  });
-  req.on("end", () => {
-    let buf = Buffer.concat(msg);
-    res.json(buf.toJSON());
-  });
-});
-router.get("/error/get", function(req, res) {
-  if (Math.random() > 0.5) {
-    res.json({
-      msg: "Hello world"
-    });
-  } else {
-    res.status(500).end();
-  }
-});
-router.get("/error/timeout", function(req, res) {
-  setTimeout(() => {
-    res.json({
-      msg: "Hello world"
-    });
-  }, 3000);
-});
+
+simple(router);
+base(router);
+error(router);
+extend(router); 
 
 app.use(router);
 
