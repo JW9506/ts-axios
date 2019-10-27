@@ -1,18 +1,23 @@
-import { AxiosInstance } from "./types/index"; 
+import { AxiosRequestConfig, AxiosStatic } from "./types/index";
 import Axios from "./core/Axios";
 import { extend } from "./helpers/util";
+import defaults from "./defaults";
+import mergeConfig from "./core/mergeConfig";
+import CancelToken from "./cancel/CancelToken";
+import Cancel, { isCancel } from "./cancel/Cancel";
 
-function createInstance(): AxiosInstance {
-  /*
-    Trying to do something like returning another function in __call__
-    method in python
-    while request method can be called the regular way, it can also  
-    be called right away as soon as Axios object is instantiated.  
-  */
-  const context = new Axios();
+function createInstance(config: AxiosRequestConfig): AxiosStatic {
+  const context = new Axios(config);
   const instance = Axios.prototype.request.bind(context);
   extend(instance, context);
-  return instance as AxiosInstance;
-} 
+  return instance as AxiosStatic;
+}
 
-export default createInstance(); 
+const axios = createInstance(defaults);
+axios.create = function create(config) {
+  return createInstance(mergeConfig(defaults, config));
+};
+axios.CancelToken = CancelToken;
+axios.Cancel = Cancel;
+axios.isCancel = isCancel;
+export default axios;

@@ -16,7 +16,7 @@ export function buildURL(url: string, params?: any): string {
   const parts: string[] = [];
   Object.keys(params).forEach((key) => {
     const val = params[key];
-    if (val === null || typeof val === undefined) {
+    if (val === null || typeof val === "undefined") {
       // abort current 'key' iteration, continue to the next key
       return;
     }

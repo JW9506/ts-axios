@@ -32,5 +32,14 @@ module.exports = function(router) {
       msg: "hello world, you requested patch"
     });
   });
-
+  router.get("/extend/user", function(req, res) {
+    res.json({
+      code: 0,
+      message: "ok",
+      result: {
+        name: "jack",
+        age: 18
+      }
+    });
+  });
 };

@@ -8,7 +8,7 @@ const webpackConfig = require("./webpack.config");
 const app = express();
 const compiler = webpack(webpackConfig);
 
-const { extend, error, base, simple } = require("./routers");
+const Routers = require("./routers");
 
 app.use(
   webpackDevMiddleware(compiler, {
@@ -26,10 +26,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const router = express.Router();
 
-simple(router);
-base(router);
-error(router);
-extend(router); 
+Routers.simple(router);
+Routers.base(router);
+Routers.error(router);
+Routers.extend(router); 
+Routers.interceptor(router);
+Routers.config(router);
+Routers.cancel(router);
 
 app.use(router);
 
