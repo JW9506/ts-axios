@@ -1,1 +1,1 @@
-To add TS to axios lib.
+To add TS (fake axios) to xhr lib.
